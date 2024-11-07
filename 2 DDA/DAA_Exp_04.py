@@ -1,13 +1,4 @@
-'''
-Madhur Jaripatke
-Roll No. 52
-BE A Computer
-RMDSSOE, Warje, Pune
-'''
-'''
-Write a program to solve a 0-1 Knapsack problem using dynamic programming or branch and 
-bound strategy.
-'''
+
 def knapsack_01(values, weights, capacity):
     n = len(values)
     
