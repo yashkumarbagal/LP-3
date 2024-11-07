@@ -1,12 +1,4 @@
-'''
-Madhur Jaripatke
-Roll No. 52
-BE A Computer
-RMDSSOE, Warje, Pune
-'''
-'''
-Write a program to implement Huffman Encoding using a greedy strategy.
-'''
+
 import heapq
 
 class node:
