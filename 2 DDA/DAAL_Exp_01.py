@@ -1,13 +1,4 @@
-'''
-Madhur Jaripatke
-Roll No. 52
-BE A Computer
-RMDSSOE, Warje, Pune
-'''
-'''
-Write a program non-recursive and recursive program to calculate Fibonacci numbers
-and analyze their time and space complexity. 
-'''
+
 # Non-Recursive Fibonacci Function
 def fibonacci_non_recursive(n):
     if n <= 0:
