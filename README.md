@@ -3,8 +3,6 @@
 
 ## SPPU SEM 7 LP3 Practicals
 
-This repository contains practicals for **Semester 7 LP3 (Laboratory Practice III)** for the **SPPU Third Year Computer Engineering** curriculum. It includes Python code, exercises, and implementations across three core subjects:
-
 ### Subjects
 
 1. **DDA (Digital Data Analytics)**
