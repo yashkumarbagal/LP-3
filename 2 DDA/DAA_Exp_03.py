@@ -1,12 +1,4 @@
-'''
-Madhur Jaripatke
-Roll No. 52
-BE A Computer
-RMDSSOE, Warje, Pune
-'''
-'''
-Write a program to solve a fractional Knapsack problem using a greedy method.
-'''
+
 class Item:
     def __init__(self, weight, value):
         self.weight = weight
