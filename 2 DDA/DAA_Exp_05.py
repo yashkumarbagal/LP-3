@@ -1,13 +1,4 @@
-'''
-Madhur Jaripatke
-Roll No. 52
-BE A Computer
-RMDSSOE, Warje, Pune
-'''
-'''
-Design n-Queens matrix having first Queen placed. Use backtracking to place remaining 
-Queens to generate the final n-queen's matrix.
-'''
+
 def is_safe(board, row, col, n):
     # Check if there's a Queen in the same column
     for i in range(row):
