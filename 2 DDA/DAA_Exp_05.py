@@ -1,4 +1,3 @@
-
 def is_safe(board, row, col, n):
     # Check if there's a Queen in the same column
     for i in range(row):
@@ -17,33 +16,50 @@ def is_safe(board, row, col, n):
 
     return True
 
-def solve_n_queens_with_known_first_queen(n, first_queen_row, first_queen_col):
+def solve_n_queens_util(board, row, n, solutions):
+    # If all queens are placed, add the current solution
+    if row == n:
+        solutions.append([row[:] for row in board])  # Make a deep copy
+        return
+
+    for col in range(n):
+        if is_safe(board, row, col, n):
+            board[row][col] = 1
+            solve_n_queens_util(board, row + 1, n, solutions)
+            board[row][col] = 0  # Backtrack
+
+def solve_n_queens(n):
     board = [[0 for _ in range(n)] for _ in range(n)]
-
-    # Place the first Queen at the specified row and column
-    board[first_queen_row][first_queen_col] = 1
-
-    def solve_n_queens_util(row):
-        if row == n:
-            return True
-
-        for col in range(n):
-            if is_safe(board, row, col, n):
-                board[row][col] = 1
-                if solve_n_queens_util(row + 1):
-                    return True
-                board[row][col] = 0
-
-        return False
-
-    if not solve_n_queens_util(first_queen_row + 1):
+    solutions = []
+    
+    solve_n_queens_util(board, 0, n, solutions)
+    
+    if not solutions:
         print("No solution exists.")
     else:
-        for row in board:
-            print(row)
+        # To track unique solutions
+        seen_boards = set()
+        unique_solutions = []
 
-n = 8
-first_queen_row = 0
-first_queen_col = 1
-print('For 8x8 Board with 8 queens:\n')
-solve_n_queens_with_known_first_queen(n, first_queen_row, first_queen_col)
+        # Store all solutions
+        for sol in solutions:
+            # Convert the board to a tuple of tuples to hash it and avoid duplicates
+            board_tuple = tuple(tuple(row) for row in sol)
+            if board_tuple not in seen_boards:
+                seen_boards.add(board_tuple)
+                unique_solutions.append(sol)
+        
+       
+        
+        # Display unique solutions
+        print("\nUnique Solutions:")
+        for sol in unique_solutions:
+            for row in sol:
+                print(row)
+            print()
+    print(f"Total overall solutions: {len(solutions)}")
+    print(f"Total unique solutions: {len(unique_solutions)}")
+
+# User input for number of queens
+n = int(input("Enter the number of queens (n): "))
+solve_n_queens(n)
