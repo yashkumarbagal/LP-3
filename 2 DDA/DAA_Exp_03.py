@@ -1,4 +1,3 @@
-
 class Item:
     def __init__(self, weight, value):
         self.weight = weight
@@ -26,15 +25,26 @@ def fractional_knapsack(items, capacity):
 
     return total_value, knapsack
 
-# Example usage
+# Take user input for the number of items and their weights/values
 if __name__ == "__main__":
-    items = [Item(10, 60), Item(20, 100), Item(30, 120)]
-    max_capacity = 50
+    n = int(input("Enter the number of items: "))
 
+    items = []
+    for i in range(n):
+        weight = float(input(f"Enter the weight of item {i + 1}: "))
+        value = float(input(f"Enter the value of item {i + 1}: "))
+        items.append(Item(weight, value))
+
+    max_capacity = float(input("Enter the maximum capacity of the knapsack: "))
+
+    # Call the fractional knapsack function
     max_value, selected_items = fractional_knapsack(items, max_capacity)
 
-    print("Selected Items:")
+    print("\nSelected Items (with fractional amount taken):")
     for item, weight in selected_items:
-        print(f"Item with weight {item.weight} and value {item.value} (fraction taken: {weight / item.weight})")
+        print(f"Item with weight {item.weight} and value {item.value} (fraction taken: {weight / item.weight:.2f})")
 
-    print(f"Maximum value achievable: {max_value}")
+    print(f"\nMaximum value achievable: {max_value:.2f}")
+
+
+
